@@ -58,17 +58,10 @@ void writePin(uint8_t* in)
 
 bool doesPinExist(void)
 {
-	bool result = true;
-	FIL file;
-	
-	if(f_open(&file, "/luma/pin.bin", FA_READ) == FR_OK)
-	{
-		f_close(&file);
-	}
-	else
-	{
-		result = false;
-	}	
+	bool result = false;
+
+	if (fileExists("/luma/pin.bin"))
+		result = true;
 
 	return result;
 }
