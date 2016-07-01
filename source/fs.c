@@ -50,6 +50,17 @@ void fileWrite(const void *buffer, const char *path, u32 size)
     }
 }
 
+bool fileExists(const char *path) 
+{
+    FILE * temp = fopen(path, "r");
+    if(temp == NULL)
+        return false;
+
+    fclose(temp);
+
+    return true;
+}
+
 void loadPayload(u32 pressed)
 {
     const char *pattern;
