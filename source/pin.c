@@ -60,9 +60,7 @@ bool doesPinExist(void)
 {
 	bool result = false;
 
-	if (!(fileExists("/luma/pin.bin")))
-		result = false;
-	else 
+	if (fileExists("/luma/pin.bin"))
 		result = true;
 
 	return result;
